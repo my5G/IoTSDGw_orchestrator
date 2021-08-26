@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  my5gcore-ue:
+    container_name: {{ ue }}
+    build:
+      context: ../containers/nf_ue
+      args:
+        DEBUG_TOOLS: "true"
+    volumes:
+      - ${UE_CONF}:/my5gcore/config
+      - ../bin/configs.sh:/my5gcore/init.sh
+    environment:
+      GIN_MODE: release
+    extra_hosts:
+      - "{{ ue }}:192.168.127.{{ ip }}"
+      - "n3iwf:192.168.127.1"
+    networks:
+     {{ network }}:
+       aliases:
+         - {{ ue }}.my5Gcore.org
+    cap_add:
+      - ALL
+    command: sh -c "./init.sh {{ args }}"
+
+networks:
+  {{ network }}:
+     external: true

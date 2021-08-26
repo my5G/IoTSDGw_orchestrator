@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  my5gcore-ue:
+    container_name: non3gpp1-scenary01
+    build:
+      context: ../../containers/nf_ue
+      args:
+        DEBUG_TOOLS: "true"
+    volumes:
+      - ../../samples/iotsgdw/config:/my5gcore/config
+      - ../../bin/configs.sh:/my5gcore/init.sh
+    environment:
+      GIN_MODE: release
+    extra_hosts:
+      - "non3gpp1:192.168.127.2"
+      - "n3iwf:192.168.127.1"
+    networks:
+     scenary1_lorawan:
+       aliases:
+         - non3gpp1.my5Gcore.org
+    cap_add:
+      - ALL
+    #command: sh -c "./init.sh nonUE 10.100.120.10"
+    command: sh -c "while true; do echo 'Hit CTRL+C'; sleep 1; done" 
+
+networks:
+  scenary1_lorawan:
+     external: true

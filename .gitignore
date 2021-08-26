@@ -1,0 +1,5 @@
+backup/
+.idea/
+.local.env.swp
+
+volumes/

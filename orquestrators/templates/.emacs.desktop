@@ -1,0 +1,42 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Fri Aug  6 13:24:49 2021
+;; Desktop file format version 208
+;; Emacs version 26.3
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (24845 25169 937036 861000) (desktop . "208") "samuel@samuel-Latitude-5410" nil nil ((((minibuffer . t) (tty-type . "screen") (tty . "/dev/tty") (display-type . color) (background-mode . dark) (foreground-color . "unspecified-fg") (tool-bar-lines . 0) (menu-bar-lines . 0) (right-divider-width . 0) (bottom-divider-width . 0) (background-color . "unspecified-bg") (font . "tty") (height . 44) (width . 94) (modeline . t) (unsplittable) (internal-border-width . 0) (frameset--id . "6360-6383-03C2-C896") (frameset--mini t)) ((min-height . 4) (min-width . 10) (min-height-ignore . 2) (min-width-ignore . 2) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 4) (min-pixel-width . 10) (min-pixel-height-ignore . 2) (min-pixel-width-ignore . 2) (min-pixel-height-safe . 1) (min-pixel-width-safe . 2)) leaf (pixel-width . 94) (pixel-height . 43) (total-width . 94) (total-height . 43) (normal-height . 1.0) (normal-width . 1.0) (buffer "my5gcore-template.yml" (selected . t) (hscroll . 0) (fringes 0 0 nil) (margins nil) (scroll-bars nil 0 t nil 0 nil) (vscroll . 0) (dedicated) (point . 511) (start . 1))))])
+(setq comint-input-ring nil)
+(setq compile-history nil)
+(setq desktop-missing-file-warning nil)
+(setq extended-command-history '("term" "linum-mode" "replace-string" "term" "replace-string" "linum-mode" "replace-string" "query-replace" "linum-mode" "replace-string" "linum-mode" "term" "package-install" "term" "elixir-mode" "package-install" "term" "ad-recover-all" "term" "make-face" "load-theme" "package-install" "linum-mode" "rename-file" "term" "go-mode" "rename-file" "term" "linum-mode" "term"))
+(setq face-name-history nil)
+(setq file-name-history '("~/myCodes/IOTSDW-Orquestrator/orquestrators/templates/" "~/myCodes/IOTSDW-Orquestrator/orquestrators/templates/my5gcore-template.yml" "~/.emacs.d/custom.el" "~/myCodes/IOTSDW-Orquestrator/orquestrators/templates/chirpstack-template.yml" "~/.emacs.d/custom.el" "~/myCodes/IOTSDW-Orquestrator/orquestrators/templates/chirpstack-template.yml" "~/.emacs.d/custom.el" "~/myCodes/IOTSDW-Compose/orquestrators/templates/my5gcore-template.yml" "~/.emacs.d/custom.el" "~/myCodes/IOTSDW-Compose/local.env" "~/myCodes/lab-article/gateway/my5G-non3GPP-IoTSDGw/docker/docker-compose.yaml" "~/myCodes/lab-article/gateway/my5G-non3GPP-IoTSDGw/docker/" "~/myCodes/IOTSDW-Compose/bin/configs.sh" "~/myCodes/IOTSDW-Compose/bin/initial_registration.sh" "~/myCodes/IOTSDW-Compose/bin/start-up.sh" "~/myCodes/IOTSDW-Compose/bin/" "~/myCodes/IOTSDW-Compose/Makefile" "~/gtp5g/Makefile" "~/.emacs.d/custom.el" "~/myCodes/Dockerfile" "~/myCodes/IOTSDW-Compose/containers/base_iotsdgw/Dockerfile" "~/.emacs.d/custom.el" "~/myCodes/IOTSDW-Compose/containers/base_iotsdgw/Dockerfile" "~/.emacs.d/custom.el" "~/myCodes/IOTSDW-Compose/containers/base_iotsdgw/Dockerfile" "~/.emacs.d/custom.el" "~/myCodes/IOTSDW-Compose/Makefile" "~/myCodes/IOTSDW-Compose/orquestrators/templates/iotsdgw-template.yml" "~/myCodes/IOTSDW-Compose/orquestrators/templates/my5gcoreMPath-template.yml" "~/myCodes/IOTSDW-Compose/Makefile" "~/myCodes/IOTSDW-Compose/bin/configs.sh" "~/myCodes/IOTSDW-Compose/orquestrators/templates/iotsdgw-template.yml" "~/myCodes/IOTSDW-Compose/local.env" "~/myCodes/IOTSDW-Compose/bin/configs.sh" "~/.emacs.d/custom.el" "~/myCodes/IOTSDW-Compose/orquestrators/templates/my5gcoreMPath-template.yml" "~/myCodes/IOTSDW-Compose/Makefile" "~/.emacs.d/custom.el" "~/myCodes/IOTSDW-Compose/local.env" "~/myCodes/IOTSDW-Compose/Makefile" "~/.emacs.d/custom.el" "~/myCodes/IOTSDW-Compose/orquestrators/iotsdgw-compose.yml" "~/myCodes/IOTSDW-Compose/orquestrators/templates/" "~/myCodes/IOTSDW-Compose/orquestrators/templates/chirpstack-template.yml" "~/myCodes/IOTSDW-Compose/Makefile" "~/myCodes/IOTSDW-Compose/local.env" "~/myCodes/IOTSDW-Compose/orquestrators/templates/chirpstack-template.yml" "~/myCodes/IOTSDW-Compose/orquestrators/templates/iotsdgw-template.yml" "~/myCodes/IOTSDW-Compose/local.env" "~/myCodes/IOTSDW-Compose/Makefile" "~/myCodes/IOTSDW-Compose/orquestrators/templates/chirpstack-template.yml" "~/myCodes/IOTSDW-Compose/containers/base_iotsdgw/Dockerfile" "~/myCodes/IOTSDW-Compose/Makefile" "~/.emacs.d/custom.el" "~/myCodes/IOTSDW-Compose/containers/base_iotsdgw/Dockerfile" "~/myCodes/IOTSDW-Compose/containers/base_iotsdgw/" "~/myCodes/IOTSDW-Compose/Makefile" "~/.emacs.d/custom.el" "~/myCodes/IOTSDW-Compose/orquestrators/templates/my5gcore-template.yml" "~/myCodes/IOTSDW-Compose/" "~/myCodes/lab-article/gateway/my5G-non3GPP-IoTSDGw/docker/Makefile" "~/myCodes/lab-article/gateway/my5G-non3GPP-IoTSDGw/docker/" "~/myCodes/IOTSDW-Compose/Makefile" "~/myCodes/lab-article/my5Gcore-compose/Makefile" "~/myCodes/IOTSDW-Compose/local.env" "~/myCodes/IOTSDW-Compose/Makefile" "~/.emacs.d/custom.el" "~/myCodes/IOTSDW-Compose/local.env" "~/myCodes/IOTSDW-Compose/Makefile" "~/.emacs.d/custom.el" "~/myCodes/IOTSDW-Compose/Makefile" "~/.emacs.d/custom.el" "~/sei-docker/Makefile" "~/myCodes/IOTSDW-Compose/Makefile" "~/.emacs.d/custom.el" "~/myCodes/python/cryptopals/diffie-hellman/diffie-hellman.py" "~/.emacs.d/custom.el" "~/myCodes/go/learnigGO/cap8/spinner.go" "~/myCodes/go/learnigGO/cap8/netcat.go" "~/myCodes/go/learnigGO/cap8/clock1.go" "~/myCodes/go/learnigGO/cap8/ftp.go" "~/myCodes/go/learnigGO/cap8/clock2.go" "~/myCodes/go/learnigGO/cap8/ftp/server.go" "~/myCodes/lab-article/my5Gcore-compose/sample/config-multipath/uerouting.yaml" "~/myCodes/lab-article/my5Gcore-compose/sample/config-multipath/multiUPF/upfcfg01.yaml" "~/free5gc/config/multiUPF/smfcfg.ulcl.yaml" "~/myCodes/lab-article/my5Gcore-compose/sample/config2/smfcfg.yaml" "~/myCodes/lab-article/my5Gcore-compose/nf_amf/Dockerfile" "~/myCodes/rust/gameboy/core/src/arm7tdmi/mod.rs" "~/rustboyadvance-ng/core/src/gpu/layer.rs" "~/myCodes/rust/gameboy/core/src/arm7tdmi/alu.rs" "~/rustboyadvance-ng/core/src/arm7tdmi/alu.rs" "~/myCodes/rust/gameboy/core/src/arm7tdmi/arm/mod.rs" "~/myCodes/my-ansibles/k8s-cluster-vm/Vagrantfile" "~/myCodes/my-ansibles/k8s-cluster-vm/requirements.yml" "~/myCodes/my-ansibles/k8s-cluster-vm/ansible.cfg" "~/myCodes/my-ansibles/k8s-cluster-vm/main.yml" "~/myCodes/my-ansibles/k8s-cluster-vm/vars/main.yml" "~/go/src/github/samuelwanberg/golp.io/ch7/byteCounter.go" "~/go/src/book.ex/cap8/netcat3/netcat3.go"))
+(setq grep-find-history nil)
+(setq grep-history nil)
+(setq minibuffer-history '("/bin/bash" "alchemist" "/bin/bash" "elixir-mode" "/bin/bash" "tsdh-dark" "django" "sanityinc-solarized-dark" "django" "django-theme" "zerodark-theme" "/bin/bash" "flycheck-golangci-lint" "go-mode"))
+(setq query-replace-history '("envsubst" "envsubt" "${CORE_CONF_01}" "${CORE_CONF}" "${VOLUMES}/metrics:" "\"\"" "${VOLUMES}/metrics" "\"\"" "${VOLUMES}/metrics" "\"\"" "\"\"" "./metrics" "${VOLUMES}/metrics" "./metrics" "${VOLUMES}/metrics" "./metrics" "${CORE_CONF}" "${CONFIG}" "${VOLUMES}/metrics" "./metrics"))
+(setq read-expression-history '("q!" "u" "w!" "wq" "w" "wq!"))
+(setq regexp-history nil)
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq search-ring nil)
+(setq shell-command-history nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "/home/samuel/myCodes/IOTSDW-Orquestrator/orquestrators/templates/my5gcore-template.yml"
+  "my5gcore-template.yml"
+  'yaml-mode
+  '(immortal-scratch-mode auto-compile-on-load-mode projectile-mode diff-hl-mode whitespace-cleanup-mode which-key-mode hes-mode whole-line-or-region-local-mode beacon-mode global-auto-revert-mode company-mode flycheck-mode anzu-mode dimmer-mode goto-address-prog-mode symbol-overlay-mode)
+  511
+  '(924 nil)
+  nil
+  nil
+  '((show-trailing-whitespace . t) (indent-tabs-mode) (buffer-display-time 24845 25166 757743 9000) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring (484))))
+

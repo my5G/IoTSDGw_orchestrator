@@ -1,0 +1,82 @@
+version: "3"
+
+services:
+  chirpstack-network-server{{ network }}:
+    image: chirpstack/chirpstack-network-server:3
+    volumes:
+      - ${CHIRP_CONF}/chirpstack-network-server:/etc/chirpstack-network-server
+    depends_on:
+      - postgresql{{ network }}
+      - mosquitto{{ network }}
+    networks:
+      {{ network }}:
+        aliases:
+           - chirpstack-network-server
+
+  chirpstack-application-server{{ network }}:
+    image: chirpstack/chirpstack-application-server:3
+    ports:
+      - {{ app }}:8080
+    volumes:
+      - ${CHIRP_CONF}/chirpstack-application-server:/etc/chirpstack-application-server
+    depends_on:
+      - chirpstack-network-server{{ network }}
+    networks:
+      {{ network }}:
+          aliases:
+             - chirpstack-application-server
+
+  chirpstack-gateway-bridge{{ network }}:
+    image: chirpstack/chirpstack-gateway-bridge:3
+    ports:
+      - {{ bridge }}:1700/udp
+    volumes:
+      - ${CHIRP_CONF}/chirpstack-gateway-bridge:/etc/chirpstack-gateway-bridge
+    depends_on:
+      - mosquitto{{ network }}
+    networks:
+      {{ network }}:
+         ipv4_address: {{ bridgeip }}
+
+  postgresql{{ network }}:
+    image: postgres:9.6-alpine
+    environment:
+      - POSTGRES_PASSWORD=root
+    volumes:
+      - ${CHIRP_CONF}/postgresql/initdb:/docker-entrypoint-initdb.d
+      - ${VOLUMES}/postgresqldata{{ network }}:/var/lib/postgresql/data
+    networks:
+      {{ network }}:
+          aliases:
+             - postgresql
+
+  redis{{ network }}:
+    image: redis:5-alpine
+    volumes:
+      - ${VOLUMES}/redisdata{{ network }}:/data
+    networks:
+      {{ network }}:
+          aliases:
+             - redis
+
+  mosquitto{{ network }}:
+    image: eclipse-mosquitto:2
+    ports:
+      - {{ mosquitto }}:1883
+    volumes:
+      - ${CHIRP_CONF}/eclipse-mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+    networks:
+     {{ network }}:
+          aliases:
+             - mosquitto
+
+volumes:
+  postgresqldata{{ network }}:
+  redisdata{{ network }}:
+
+networks:
+  {{ network }}:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.100.{{ octect }}.0/24

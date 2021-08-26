@@ -1,0 +1,297 @@
+version: '3'
+
+services:
+  my5gcore-upf-1:
+    container_name: upf1
+    build:
+      context: ../../containers/nf_upf
+      args:
+        DEBUG_TOOLS: "true"
+    command: bash -c "./router-upf.sh && ./debug.sh && ./free5gc-upfd -f ../config/upfcfg.yaml"
+    volumes:
+      - "../../samples/core/config-single/upfcfg1.yaml:/my5Gcore/config/upfcfg.yaml"
+      - "../../samples/core/config-single/config-router.sh:/my5Gcore/free5gc-upfd/router-upf.sh"
+      - "../../samples/core/config-single/debug.sh:/my5Gcore/free5gc-upfd/debug.sh"
+      - "./volumes/metrics:/metrics"
+    environment:
+      DEBUG: "true"
+      UPF: "upf-1"
+    cap_add:
+      - ALL
+    networks:
+      5gcorenetwork:
+        aliases:
+          - upf1.my5Gcore.org
+      scenary2_lorawan:
+        aliases:
+          - lorawan.my5Gcore.org
+  db:
+    container_name: mongodb
+    image: mongo
+    command: mongod --port 27017
+    expose:
+      - "27017"
+    ports:
+      - "27017:27017"
+    volumes:
+      - "./volumes/dbdata:/data/db"
+    networks:
+      5gcorenetwork:
+        aliases:
+          - db
+
+  my5gcore-nrf:
+    container_name: nrf
+    build:
+      context: ../../containers/nf_nrf
+      args:
+        DEBUG_TOOLS: "true"
+    command: sh -c "./debug.sh && ./nrf -nrfcfg ../config/nrfcfg.yaml"
+    expose:
+      - "29510"
+    volumes:
+      - ../../samples/core/config-single/nrfcfg.yaml:/my5Gcore/config/nrfcfg.yaml
+      - ../../samples/core/config-single/debug.sh:/my5Gcore/nrf/debug.sh
+      - "./volumes/metrics:/metrics"
+    environment:
+      DB_URI: mongodb://db/free5gc
+      GIN_MODE: release
+      DEBUG: "true"
+    networks:
+      5gcorenetwork:
+        aliases:
+          - nrf.my5Gcore.org
+    depends_on:
+      - db
+
+  my5gcore-amf:
+    container_name: amf
+    build:
+      context: ../../containers/nf_amf
+      args:
+        DEBUG_TOOLS: "true"
+    command: sh -c "./debug.sh && ./amf -amfcfg ../config/amfcfg.yaml"
+    expose:
+      - "29518"
+    volumes:
+      - ../../samples/core/config-single/amfcfg.yaml:/my5Gcore/config/amfcfg.yaml
+      - ../../samples/core/config-single/debug.sh:/my5Gcore/amf/debug.sh
+      - ./volumes/metrics:/metrics
+    environment:
+      GIN_MODE: release
+      DEBUG: "true"
+    networks:
+      5gcorenetwork:
+        aliases:
+          - amf.my5Gcore.org
+    depends_on:
+      - my5gcore-nrf
+
+  my5gcore-ausf:
+    container_name: ausf
+    build:
+      context: ../../containers/nf_ausf
+      args:
+        DEBUG_TOOLS: "true"
+    command: sh -c "./debug.sh && ./ausf -ausfcfg ../config/ausfcfg.yaml"
+    expose:
+      - "29509"
+    volumes:
+      - ../../samples/core/config-single/ausfcfg.yaml:/my5Gcore/config/ausfcfg.yaml
+      - ../../samples/core/config-single/debug.sh:/my5Gcore/ausf/debug.sh
+      - ./volumes/metrics:/metrics
+    environment:
+      GIN_MODE: release
+      DEBUG: "true"
+    networks:
+      5gcorenetwork:
+        aliases:
+          - ausf.my5Gcore.org
+    depends_on:
+      - my5gcore-nrf
+
+  my5gcore-nssf:
+    container_name: nssf
+    build:
+      context: ../../containers/nf_nssf
+      args:
+        DEBUG_TOOLS: "true"
+    command: sh -c "./debug.sh && ./nssf -nssfcfg ../config/nssfcfg.yaml"
+    expose:
+      - "29531"
+    volumes:
+      - ../../samples/core/config-single/nssfcfg.yaml:/my5Gcore/config/nssfcfg.yaml
+      - ../../samples/core/config-single/debug.sh:/my5Gcore/nssf/debug.sh
+      - ./volumes/metrics:/metrics
+    environment:
+      GIN_MODE: release
+      DEBUG: "true"
+    networks:
+      5gcorenetwork:
+        aliases:
+          - nssf.my5Gcore.org
+    depends_on:
+      - my5gcore-nrf
+
+  my5gcore-pcf:
+    container_name: pcf
+    build:
+      context: ../../containers/nf_pcf
+      args:
+        DEBUG_TOOLS: "true"
+    command: sh -c "./debug.sh && ./pcf -pcfcfg ../config/pcfcfg.yaml"
+    expose:
+      - "29507"
+    volumes:
+      - ../../samples/core/config-single/pcfcfg.yaml:/my5Gcore/config/pcfcfg.yaml
+      - ../../samples/core/config-single/debug.sh:/my5Gcore/pcf/debug.sh
+      - ./volumes/metrics:/metrics
+    environment:
+      GIN_MODE: release
+      DEBUG: "true"
+    networks:
+      5gcorenetwork:
+        aliases:
+          - pcf.my5Gcore.org
+    depends_on:
+      - my5gcore-nrf
+
+  my5gcore-smf:
+    container_name: smf
+    build:
+      context: ../../containers/nf_smf
+      args:
+        DEBUG_TOOLS: "true"
+    command: sh -c "./debug.sh && ./smf -smfcfg ../config/smfcfg.yaml -uerouting ../config/uerouting.yaml"
+    expose:
+      - "29502"
+      - "8805/udp"
+    volumes:
+      - ../../samples/core/config-single/smfcfg.yaml:/my5Gcore/config/smfcfg.yaml
+      - ../../samples/core/config-single/uerouting.yaml:/my5Gcore/config/uerouting.yaml
+      - ../../samples/core/config-single/debug.sh:/my5Gcore/smf/debug.sh
+      - ./volumes/metrics:/metrics
+    environment:
+      GIN_MODE: release
+      DEBUG: "true"
+    networks:
+      5gcorenetwork:
+        aliases:
+          - smf.my5Gcore.org
+    depends_on:
+      - my5gcore-nrf
+      - my5gcore-upf-1
+
+  my5gcore-udm:
+    container_name: udm
+    build:
+      context: ../../containers/nf_udm
+      args:
+        DEBUG_TOOLS: "true"
+    command: sh -c "./debug.sh && ./udm -udmcfg ../config/udmcfg.yaml"
+    expose:
+      - "29503"
+    volumes:
+      - ../../samples/core/config-single/udmcfg.yaml:/my5Gcore/config/udmcfg.yaml
+      - ../../samples/core/config-single/debug.sh:/my5Gcore/udm/debug.sh
+      - ./volumes/metrics:/metrics
+    environment:
+      GIN_MODE: release
+      DEBUG: "true"
+    networks:
+      5gcorenetwork:
+        aliases:
+          - udm.my5Gcore.org
+    depends_on:
+      - db
+      - my5gcore-nrf
+
+  my5gcore-udr:
+    container_name: udr
+    build:
+      context: ../../containers/nf_udr
+      args:
+        DEBUG_TOOLS: "true"
+    command: sh -c "./debug.sh && ./udr -udrcfg ../config/udrcfg.yaml"
+    expose:
+      - "29504"
+    volumes:
+      - ../../samples/core/config-single/udrcfg.yaml:/my5Gcore/config/udrcfg.yaml
+      - ../../samples/core/config-single/debug.sh:/my5Gcore/udr/debug.sh
+      - ./volumes/metrics:/metrics
+    environment:
+      DB_URI: mongodb://db/free5gc
+      GIN_MODE: release
+      DEBUG: "true"
+    networks:
+      5gcorenetwork:
+        aliases:
+          - udr.my5Gcore.org
+    depends_on:
+      - db
+      - my5gcore-nrf
+
+  my5gcore-n3iwf:
+    container_name: n3iwf
+    build:
+      context: ../../containers/nf_n3iwf
+      args:
+        DEBUG_TOOLS: "true"
+    command: sh -c "./n3iwf-ipsec.sh && ./debug.sh && ./n3iwf -n3iwfcfg ../config/n3iwfcfg.yaml"
+    ports:
+      - "20000:20000"
+      - "500:500/udp"
+      - "4500:4500/udp"
+
+    volumes:
+      - ../../samples/core/config-single/n3iwfcfg.yaml:/my5Gcore/config/n3iwfcfg.yaml
+      - ../../samples/core/config-single/n3iwf-ipsec.sh:/my5Gcore/n3iwf/n3iwf-ipsec.sh
+      - ../../samples/core/config-single/debug.sh:/my5Gcore/n3iwf/debug.sh
+      - ./volumes/metrics:/metrics
+    environment:
+      GIN_MODE: release
+      DEBUG: "true"
+    cap_add:
+      - NET_ADMIN
+    networks:
+      5gcorenetwork:
+        ipv4_address: 10.100.200.200
+        aliases:
+          - n3iwf.my5Gcore.org
+    depends_on:
+      - my5gcore-amf
+      - my5gcore-smf
+      - my5gcore-upf-1
+
+  my5gcore-webui:
+    container_name: webui
+    build:
+      context: ../../containers/webui
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./webui
+    volumes:
+      - ../../samples/core/config-single/webuicfg.yaml:/my5Gcore/config/webuicfg.yaml
+    environment:
+      - GIN_MODE=release
+    networks:
+        5gcorenetwork:
+         aliases:
+          - webui
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+
+volumes:
+  dbdata:
+  metrics:
+
+networks:
+  5gcorenetwork:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.100.200.0/24
+  scenary2_lorawan:
+    external: true
