@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2f79a19b-5f80-4ea0-93dc-652a2a8bef6e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../config-1.0.0/teste" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../orquestrators/scenary2/.iotsdgw-compose.yml.swp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../orquestrators/scenary2/core-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../orquestrators/scenary2/core-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../orquestrators/scenary3/core-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../orquestrators/scenary3/core-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../orquestrators/templates/my5gcore-template.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../orquestrators/templates/my5gcore-template.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../orquestrators/templates/my5gcoreMPath-template.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../orquestrators/templates/my5gcoreMPath-template.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/.amfcfg.yaml.swo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/.debug.sh.swp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/amfcfg.n3test.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/amfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/ausfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/config-router.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/debug.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/multiUPF/smfcfg.ulcl.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/multiUPF/uerouting.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/multiUPF/upfcfg01.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/multiUPF/upfcfg02.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/multiUPF/upfcfg03.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/multiUPF/upfcfg04.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/multiUPF/upfcfg05.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/multiUPF/upfcfg06.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/n3iwf-ipsec.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/n3iwfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/nrfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/nssfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/pcfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/smfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/test/smfcfg.pdusessions.test.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/test/smfcfg.single.test.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/test/smfcfg.ulcl.test.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/udmcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/udrcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/uerouting.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/upfcfg1.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/upfcfg2.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/upfcfgb.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-UPFS/webuicfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/.amfcfg.yaml.swo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/.debug.sh.swp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/amfcfg.n3test.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/amfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/ausfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/config-router.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/debug.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/multiUPF/smfcfg.ulcl.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/multiUPF/uerouting.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/multiUPF/upfcfg01.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/multiUPF/upfcfg02.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/multiUPF/upfcfg03.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/multiUPF/upfcfg04.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/multiUPF/upfcfg05.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/multiUPF/upfcfg06.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/n3iwf-ipsec.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/n3iwfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/nrfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/nssfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/pcfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/smfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/test/smfcfg.pdusessions.test.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/test/smfcfg.single.test.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/test/smfcfg.ulcl.test.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/udmcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/udrcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/uerouting.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/upfcfg1.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/upfcfg2.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/upfcfgb.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-multiPath/webuicfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/.amfcfg.yaml.swo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/.debug.sh.swp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/.emacs.desktop" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/amfcfg.n3test.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/amfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/ausfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/config-router.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/debug.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/multiUPF/smfcfg.ulcl.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/multiUPF/uerouting.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/multiUPF/upfcfg01.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/multiUPF/upfcfg02.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/multiUPF/upfcfg03.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/multiUPF/upfcfg04.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/multiUPF/upfcfg05.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/multiUPF/upfcfg06.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/n3iwf-ipsec.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/n3iwfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/nrfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/nssfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/pcfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/smfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/test/smfcfg.pdusessions.test.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/test/smfcfg.single.test.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/test/smfcfg.ulcl.test.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/udmcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/udrcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/uerouting.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/upfcfg1.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/upfcfg2.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/upfcfgb.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config-single/webuicfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/amfcfg.n3test.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/amfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/ausfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/n3iwfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/nrfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/nssfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/pcfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/smfcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/test/smfcfg.pdusessions.test.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/test/smfcfg.single.test.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/test/smfcfg.ulcl.test.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/udmcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/udrcfg.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/uerouting.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/upfcfg1.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/upfcfg2.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/upfcfgb.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/webuicfg.yaml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GOROOT" url="file://$USER_HOME$/sdk/go1.14.10" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="1xR7Kc8Mya9NB5fY9Rqby0nZoe8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
