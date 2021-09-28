@@ -13,10 +13,19 @@ DOCKER_IMAGE_NAME_UE='ue'
 DOCKER_IMAGE_TAG_UE='latest'
 
 
-base_core:
+base_free5gc:
 
-	docker build -t ${DOCKER_IMAGE_OWNER}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} ./containers/base
+	docker build --no-cache -t ${DOCKER_IMAGE_OWNER}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} ./containers/base
 	docker image ls ${DOCKER_IMAGE_OWNER}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}
+
+
+base_my5gcore:
+
+	docker build --no-cache  -t ${DOCKER_IMAGE_OWNER}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} ./containers/base_old
+	docker image ls ${DOCKER_IMAGE_OWNER}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}
+
+
+
 
 base_ue:
 

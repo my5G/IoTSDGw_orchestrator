@@ -4,8 +4,8 @@ LABEL maintainer="My5Gcore <support@m5gcore.labora.inf.ufg.br>"
 
 ENV MY5GC_BRANCH master
 
-#ENV UE_BRANCH vSBrT2020
-ENV UE_BRANCH free5gc-3.0.5-Version
+ENV UE_BRANCH master
+#ENV UE_BRANCH free5gc-3.0.5-Version
 
 RUN apt-get update
 RUN apt-get -y install git gcc cmake autoconf libtool pkg-config libmnl-dev libyaml-dev ssh curl

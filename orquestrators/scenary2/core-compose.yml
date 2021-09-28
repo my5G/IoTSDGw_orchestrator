@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 
 services:
   my5gcore-upf-1:
@@ -20,6 +20,7 @@ services:
       - ALL
     networks:
       5gcorenetwork:
+        ipv4_address: 10.100.200.101       
         aliases:
           - upf1.my5Gcore.org
       scenary2_lorawan:
@@ -175,6 +176,7 @@ services:
       DEBUG: "true"
     networks:
       5gcorenetwork:
+        ipv4_address: 10.100.200.100
         aliases:
           - smf.my5Gcore.org
     depends_on:
@@ -237,11 +239,11 @@ services:
       args:
         DEBUG_TOOLS: "true"
     command: sh -c "./n3iwf-ipsec.sh && ./debug.sh && ./n3iwf -n3iwfcfg ../config/n3iwfcfg.yaml"
+    expose:
+      - "500/udp"
+      - "5400/udp"
     ports:
       - "20000:20000"
-      - "500:500/udp"
-      - "4500:4500/udp"
-
     volumes:
       - ${CONFIG}/n3iwfcfg.yaml:/my5Gcore/config/n3iwfcfg.yaml
       - ${CONFIG}/n3iwf-ipsec.sh:/my5Gcore/n3iwf/n3iwf-ipsec.sh
@@ -270,7 +272,7 @@ services:
         DEBUG_TOOLS: "false"
     command: ./webui
     volumes:
-      - ${CONFIG}/webuicfg.yaml:/my5Gcore/config/webuicfg.yaml
+      - ${CONFIG}/webuicfg.yaml:/my5Gcore/config/webuicfg.conf
     environment:
       - GIN_MODE=release
     networks:
