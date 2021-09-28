@@ -1,1 +1,6 @@
-volumes
+backup/
+.idea/
+.swp
+.local.env.swp
+dbdata/
+volumes/
