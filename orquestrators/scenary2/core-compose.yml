@@ -14,7 +14,7 @@ services:
       - "${CONFIG}/debug.sh:/my5Gcore/free5gc-upfd/debug.sh"
       - "./volumes/metrics:/metrics"
     environment:
-      DEBUG: "true"
+      DEBUG: "false"
       UPF: "upf-1"
     cap_add:
       - ALL
@@ -251,7 +251,7 @@ services:
       - ./volumes/metrics:/metrics
     environment:
       GIN_MODE: release
-      DEBUG: "true"
+      DEBUG: "false"
     cap_add:
       - NET_ADMIN
     networks:

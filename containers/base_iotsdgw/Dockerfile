@@ -4,7 +4,7 @@ LABEL maintainer="My5Gcore <support@m5gcore.labora.inf.ufg.br>"
 
 ENV MY5GC_BRANCH master
 
-ENV UE_BRANCH master
+ENV UE_BRANCH article
 #ENV UE_BRANCH free5gc-3.0.5-Version
 
 RUN apt-get update
