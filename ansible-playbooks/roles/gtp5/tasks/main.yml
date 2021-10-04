@@ -1,0 +1,28 @@
+---
+- name: Install GTP5 dependencies
+  apt:
+   name: "{{ item }}"
+   state: present
+   update_cache: true
+  become: true
+  loop:
+    - make 
+    - git    
+
+# - name: Configure gtp5 module.
+- name: Download GTP5 git code files 
+  become: true 
+  git:
+     repo: "{{ gtp5_rep_url }}"
+     dest: "{{ gtp5_dst_dir }}" 
+
+- name: Build the default target 
+  make:
+     chdir: "{{ gtp5_dst_dir }}"
+
+
+- name: Run 'install' target as root 
+  make:
+     chdir: "{{ gtp5_dst_dir }}"
+     target: install
+  become: yes     

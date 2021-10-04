@@ -1,0 +1,5 @@
+gtp5_rep_url: https://github.com/free5gc/gtp5g.git
+gtp5_dst_dir: gtp
+iotsdgw_rep: https://github.com/my5G/IOTSDGW_ORQUESTRATOR.git
+iotsdgw_dir: temp/iotsdgw/
+

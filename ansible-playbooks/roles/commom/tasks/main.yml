@@ -1,0 +1,44 @@
+---
+- name: Install pip 
+  apt:
+   name:  python3-pip
+   state: present 
+   update_cache: true 
+  become: true
+
+- name: Install Docker sdk 
+  pip:
+    name: docker       
+
+- name: Docker  Prune everything 
+  community.docker.docker_prune:
+    containers: yes
+    images: yes
+    networks: yes 
+    volumes: yes
+    builder_cache: yes 
+
+- name: Get IOSDGW-Orquestrator Code 
+  git:
+    repo: "{{ iotsdgw_rep }}" 
+    dest: "{{ iotsdgw_dir }}"
+
+- name: Make my5gore base core container
+  make:
+     chdir: "{{ iotsdgw_dir }}"
+     target: base_my5gcore
+  become: yes
+
+
+- name: Make my5gore base ue  container
+  make:
+     chdir: "{{ iotsdgw_dir }}"
+     target: base_ue
+  become: yes    
+
+
+- name: Copy volumes config to scenaryOne 
+  ansible.builtin.copy:
+    src:       
+ 
+     
