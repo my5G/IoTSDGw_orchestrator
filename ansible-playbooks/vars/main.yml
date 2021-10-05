@@ -1,5 +1,13 @@
 gtp5_rep_url: https://github.com/free5gc/gtp5g.git
 gtp5_dst_dir: gtp
+
 iotsdgw_rep: https://github.com/my5G/IOTSDGW_ORQUESTRATOR.git
 iotsdgw_dir: temp/iotsdgw/
 
+volume01_tar: files/cenario1.tar
+volume02_tar: files/cenario2.tar
+volume03_tar: files/cenario3.tar
+
+scenaryOne_dst_dir: temp/iotsdgw/orquestrators/scenary1
+scenaryTwo_dst_dir: temp/iotsdgw/orquestrators/scenary2
+scenaryThree_dst_dir: temp/iotsdgw/orquestrators/scenary3
