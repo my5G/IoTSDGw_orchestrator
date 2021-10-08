@@ -1,0 +1,20 @@
+---
+- name: use find to get files list which want to fetch 
+  find:
+    paths: "{{ item }}"
+    patterns: "*LoRaIOTSDGW*"
+    use_regex: True 
+  register: get_csv_metrics
+  with_items:
+     - "{{ dir_scenary1 }}"     
+     - "{{ dir_scenary2 }}"
+     - "{{ dir_scenary3 }}"
+   
+- name: use fetch to get the files
+  fetch:
+    src: "{{ item }}"
+    dest: "collect/{{ invetory_hostname }}"
+    flat: yes 
+  with_items: "{{ get_csv_metrics.files }}"  
+
+

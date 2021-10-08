@@ -1,0 +1,5 @@
+---
+ - name: Get metrics file into tem/iotsdg/orquestrator/scenary2/volume/metrics.tar
+   ansible.builtin.fetch:
+     src: {{ metrics2 }}      
+     dest:  results/scenary2 

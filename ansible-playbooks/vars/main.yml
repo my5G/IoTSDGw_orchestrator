@@ -8,6 +8,19 @@ volume01_tar: files/cenario1.tar
 volume02_tar: files/cenario2.tar
 volume03_tar: files/cenario3.tar
 
-scenaryOne_dst_dir: temp/iotsdgw/orquestrators/scenary1
-scenaryTwo_dst_dir: temp/iotsdgw/orquestrators/scenary2
-scenaryThree_dst_dir: temp/iotsdgw/orquestrators/scenary3
+scenaryOne_src_dir: /home/teste/temp/iotsdgw/cenario1.tar
+scenaryTwo_src_dir: /home/teste/temp/iotsdgw/cenario2.tar
+scenaryThree_src_dir: /home/teste/temp/iotsdgw/cenario3.tar
+
+scenaryOne_dst_dir: /home/teste/temp/iotsdgw/orquestrators/scenary1
+scenaryTwo_dst_dir: /home/teste/temp/iotsdgw/orquestrators/scenary2
+scenaryThree_dst_dir: /home/teste/temp/iotsdgw/orquestrators/scenary3
+
+dir_scenary1: /home/teste/temp/iotsdgw/orquestrators/scenary1/volumes/metrics
+
+dir_scenary2: /home/teste/temp/iotsdgw/orquestrators/scenary2/volumes/metrics
+
+dir_scenary3: /home/teste/temp/iotsdgw/orquestrators/scenary3/volumes/metrics
+
+
+

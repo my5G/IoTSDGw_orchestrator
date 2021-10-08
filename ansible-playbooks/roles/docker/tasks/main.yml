@@ -1,0 +1,33 @@
+---
+- name: Install pip
+  apt:
+   name:  python3-pip
+   state: present
+   update_cache: true
+  become: true
+
+- name: Install Docker sdk
+  pip:
+    name: docker
+
+- name: Get running containers
+  docker_host_info:
+        containers: yes
+  register: docker_info
+
+- name: Stop running containers
+  docker_container:
+    name: "{{ item }}"
+    state: stopped
+  loop: "{{ docker_info.containers | map(attribute='Id') | list }}"
+
+- name: Docker  Prune everything
+  community.docker.docker_prune:
+    containers: yes
+    networks: yes
+    volumes: yes
+    builder_cache: yes
+    images: yes
+  become: true 
+
+

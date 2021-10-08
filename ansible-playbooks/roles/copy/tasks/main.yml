@@ -1,0 +1,15 @@
+---
+- name: Untar Volumes Config Scenary1
+  ansible.builtin.unarchive:
+    src: "{{ volume01_tar }}"
+    dest: "{{ scenaryOne_dst_dir }}"
+
+- name: Untar Volumes Config Scenary2
+  ansible.builtin.unarchive:
+    src:  "{{ volume02_tar }}"
+    dest: "{{ scenaryTwo_dst_dir }}"
+
+- name: Untar Volumes Config Scenary3
+  ansible.builtin.unarchive:
+    src:  "{{ volume03_tar }}"
+    dest: "{{ scenaryThree_dst_dir }}"
