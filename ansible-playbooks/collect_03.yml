@@ -1,0 +1,7 @@
+---
+- hosts: all
+  become: true
+  vars:
+    dir_metrics: /home/teste/temp/iotsdgw/orquestrators/scenary3/volumes/metrics
+  roles:
+    - collect

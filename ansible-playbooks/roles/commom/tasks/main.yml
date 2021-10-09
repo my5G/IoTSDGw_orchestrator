@@ -4,22 +4,24 @@
     repo: "{{ iotsdgw_rep }}" 
     dest: "{{ iotsdgw_dir }}"
 
+- name: Clear All Docker Env
+  ansible.builtin.shell: docker system prune --force --all
+  args:
+    executable: /bin/bash
+  become: yes
+
 - name: Make my5gore base core container
   make:
      chdir: "{{ iotsdgw_dir }}"
      target: base_my5gcore
   become: yes
 
-
 - name: Make my5gore base ue  container
   make:
      chdir: "{{ iotsdgw_dir }}"
      target: base_ue
-  become: yes    
-
+  become: yes
 
 - name: Copy volumes config to scenaryOne 
   ansible.builtin.copy:
     src:       
- 
-     

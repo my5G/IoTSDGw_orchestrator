@@ -12,23 +12,15 @@ DOCKER_IMAGE_OWNER_UE='my5gcore'
 DOCKER_IMAGE_NAME_UE='ue'
 DOCKER_IMAGE_TAG_UE='latest'
 
-
 base_free5gc:
-
 	docker build --no-cache -t ${DOCKER_IMAGE_OWNER}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} ./containers/base
 	docker image ls ${DOCKER_IMAGE_OWNER}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}
 
-
 base_my5gcore:
-
 	docker build --no-cache  -t ${DOCKER_IMAGE_OWNER}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} ./containers/base_old
 	docker image ls ${DOCKER_IMAGE_OWNER}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}
 
-
-
-
 base_ue:
-
 	docker build --no-cache -t ${DOCKER_IMAGE_OWNER_UE}/${DOCKER_IMAGE_NAME_UE}:${DOCKER_IMAGE_TAG_UE} ./containers/base_iotsdgw
 	docker image ls ${DOCKER_IMAGE_OWNER_UE}/${DOCKER_IMAGE_NAME_UE}:${DOCKER_IMAGE_TAG_UE}
 
@@ -123,10 +115,7 @@ build_docker_compose_scenary3:
 	@sed -i'' -e "s/{{ internet2 }}/lorawan2/g" orquestrators/core-compose.yml
 
 run1: ## RUN
-	docker-compose -f orquestrators/chirpstack-compose.yml build
-	docker-compose -f orquestrators/chirpstack-compose.yml up -d
-	docker-compose -f orquestrators/iotsdgw-compose.yml build
-	docker-compose -f orquestrators/iotsdgw-compose.yml up -d
+	envsubst < orquestrators/scenary1/iotsdgw-compose.yml  > orquestrators/scenary1/iotsdgw-compose.yml
 
 run2: ## RUN
 	docker-compose -f orquestrators/chirpstack-compose.yml up -d

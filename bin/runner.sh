@@ -61,8 +61,9 @@ fi
 
 if [ "$1" == "nonUE" ]; then
     echo " Non UE Execute"
+    sleep 5
     trigger_runner_forwarder
-    sleep 1
+    sleep 3
     trigger_simulator
 fi
 

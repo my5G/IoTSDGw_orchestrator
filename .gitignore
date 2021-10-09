@@ -4,3 +4,4 @@ backup/
 .local.env.swp
 dbdata/
 volumes/
+collect/

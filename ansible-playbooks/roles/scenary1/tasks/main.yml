@@ -1,0 +1,10 @@
+---
+- name: Run command to execute scenary
+  environment:
+    DEVS_NUMBERS: {{ devs }}
+  ansible.builtin.shell: /home/teste/temp/iotsdgw/orquestrators/scenary1/run.sh
+  args:
+    executable: /bin/bash
+
+
+
