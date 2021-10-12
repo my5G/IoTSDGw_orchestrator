@@ -1,4 +1,6 @@
 #!/bin/bash
+
+sudo rm -rf ./volumes/metrics
 sudo docker-compose -f chirpstack-compose.yml down --remove-orphans
 sudo docker network prune -f
 sudo docker-compose -f chirpstack-compose.yml up -d

@@ -319,7 +319,7 @@ services:
         DEBUG_TOOLS: "false"
     command: ./webui
     volumes:
-      - ${CONFIG}/webuicfg.yaml:/my5Gcore/config/webuicfg.yaml
+      - ${CONFIG}/webuicfg.yaml:/my5Gcore/config/webuicfg.conf
     environment:
       - GIN_MODE=release
     networks:
