@@ -9,6 +9,6 @@
 - name: use fetch to get the files
   fetch:
     src: "{{ item.path }}"
-    dest: "collect/scenary2/{{ inventory_hostname }}/"
+    dest: "collect/{{ dir_dst }}/{{ inventory_hostname }}/"
     flat: yes
   with_items: "{{ get_csv_metrics.files }}"

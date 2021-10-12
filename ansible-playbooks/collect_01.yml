@@ -3,5 +3,6 @@
   become: true
   vars:
     dir_metrics: /home/teste/temp/iotsdgw/orquestrators/scenary1/volumes/metrics
+    dir_dst: scenary1
   roles:
     - collect

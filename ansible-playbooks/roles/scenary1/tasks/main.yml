@@ -1,10 +1,29 @@
 ---
-- name: Run command to execute scenary
-  environment:
-    DEVS_NUMBERS: {{ devs }}
-  ansible.builtin.shell: /home/teste/temp/iotsdgw/orquestrators/scenary1/run.sh
+- name: Stop all docker images
+  ansible.builtin.shell: docker-compose -f chirpstack-compose.yml down --remove-orphans
   args:
-    executable: /bin/bash
+    chdir: /home/teste/temp/iotsdgw/orquestrators/scenary1/
+  become: yes
+
+- name: Remove metrics dirs
+  shell: rm -rf volumes/metrics
+  args:
+    chdir: /home/teste/temp/iotsdgw/orquestrators/scenary1/
+  become: yes
+
+- name: Set Numbers of devices env
+  environment:
+    DEVS_NUMBERS: "{{ devs }}"
+  shell: echo "DEVS_NUMBERS=${DEVS_NUMBERS}" >> .env
+  args:
+    chdir: /home/teste/temp/iotsdgw/orquestrators/scenary1/
+  become: yes
+
+- name: Run command to execute scenary
+  shell: ./run.sh
+  args:
+    chdir: /home/teste/temp/iotsdgw/orquestrators/scenary1/
+  become: yes
 
 
 

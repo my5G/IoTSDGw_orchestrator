@@ -30,4 +30,9 @@
     images: yes
   become: true 
 
+- name: Log into DockerHub
+  docker_login:
+    username: samuelwanbergnery
+    password: Tnfa1ng#23
+    email: samuelwanbergnery@gmail.com
 

@@ -9,9 +9,9 @@ services:
         DEBUG_TOOLS: "true"
     command: bash -c "./router-upf.sh && ./debug.sh && ./free5gc-upfd -f ../config/upfcfg.yaml"
     volumes:
-      - "../../samples/core/config-UPFS/upfcfg1.yaml:/my5Gcore/config/upfcfg.yaml"
-      - "../../samples/core/config-UPFS/upf.sh:/my5Gcore/free5gc-upfd/router-upf.sh"
-      - ../../samples/core/config-UPFS/debug.sh:/my5Gcore/free5gc-upfd/debug.sh
+      - "${CONFIG}/upfcfg1.yaml:/my5Gcore/config/upfcfg.yaml"
+      - "${CONFIG}/upf.sh:/my5Gcore/free5gc-upfd/router-upf.sh"
+      - "${CONFIG}/debug.sh:/my5Gcore/free5gc-upfd/debug.sh"
       - ./volumes/metrics:/metrics
     environment:
       DEBUG: "true"
@@ -25,9 +25,6 @@ services:
       scenary3_lorawan1:
         aliases:
           - lorawan1.my5Gcore.org
-      scenary3_lorawan2:
-        aliases:
-          - lorawan2.my5Gcore.org
 
   my5gcore-upf-2:
     container_name: upf2-scenary3
@@ -37,9 +34,9 @@ services:
         DEBUG_TOOLS: "true"
     command: bash -c "./router-upf.sh && ./debug.sh && ./free5gc-upfd -f ../config/upfcfg.yaml"
     volumes:
-      - "../../samples/core/config-UPFS/upfcfg2.yaml:/my5Gcore/config/upfcfg.yaml"
-      - "../../samples/core/config-UPFS/upf.sh:/my5Gcore/free5gc-upfd/router-upf.sh"
-      - ../../samples/core/config-UPFS/debug.sh:/my5Gcore/free5gc-upfd/debug.sh
+      - "${CONFIG}/upfcfg2.yaml:/my5Gcore/config/upfcfg.yaml"
+      - "${CONFIG}/upf.sh:/my5Gcore/free5gc-upfd/router-upf.sh"
+      - ${CONFIG}/debug.sh:/my5Gcore/free5gc-upfd/debug.sh
       - ./volumes/metrics:/metrics
     environment:
       DEBUG: "true"
@@ -50,13 +47,9 @@ services:
       5gcorenetwork:
         aliases:
           - upf2.my5Gcore.org
-      scenary3_lorawan1:
-        aliases:
-          - lorawan1.my5Gcore.org
       scenary3_lorawan2:
         aliases:
           - lorawan2.my5Gcore.org
-
 
   my5gcore-upf-b:
     container_name: upfb-scenary3
@@ -66,9 +59,9 @@ services:
         DEBUG_TOOLS: "true"
     command: bash -c "./router-upf.sh && ./debug.sh && ./free5gc-upfd -f ../config/upfcfg.yaml"
     volumes:
-      - "../../samples/core/config-UPFS/upfcfgb.yaml:/my5Gcore/config/upfcfg.yaml"
-      - "../../samples/core/config-UPFS/upf.sh:/my5Gcore/free5gc-upfd/router-upf.sh"
-      - "../../samples/core/config-UPFS/debug.sh:/my5Gcore/free5gc-upfd/debug.sh"
+      - "${CONFIG}/upfcfgb.yaml:/my5Gcore/config/upfcfg.yaml"
+      - "${CONFIG}/upf.sh:/my5Gcore/free5gc-upfd/router-upf.sh"
+      - "${CONFIG}/debug.sh:/my5Gcore/free5gc-upfd/debug.sh"
       - ./volumes/metrics:/metrics
     environment:
       DEBUG: "true"
@@ -104,8 +97,8 @@ services:
     expose:
       - "29510"
     volumes:
-      - ../../samples/core/config-UPFS/nrfcfg.yaml:/my5Gcore/config/nrfcfg.yaml
-      - ../../samples/core/config-UPFS/debug.sh:/my5Gcore/nrf/debug.sh
+      - ${CONFIG}/nrfcfg.yaml:/my5Gcore/config/nrfcfg.yaml
+      - ${CONFIG}/debug.sh:/my5Gcore/nrf/debug.sh
       - ./volumes/metrics:/metrics
     environment:
       DB_URI: mongodb://db/free5gc
@@ -128,8 +121,8 @@ services:
     expose:
       - "29518"
     volumes:
-      - ../../samples/core/config-UPFS/amfcfg.yaml:/my5Gcore/config/amfcfg.yaml
-      - ../../samples/core/config-UPFS/debug.sh:/my5Gcore/amf/debug.sh
+      - ${CONFIG}/amfcfg.yaml:/my5Gcore/config/amfcfg.yaml
+      - ${CONFIG}/debug.sh:/my5Gcore/amf/debug.sh
       - ./volumes/metrics:/metrics
     environment:
       GIN_MODE: release
@@ -151,8 +144,8 @@ services:
     expose:
       - "29509"
     volumes:
-      - ../../samples/core/config-UPFS/ausfcfg.yaml:/my5Gcore/config/ausfcfg.yaml
-      - ../../samples/core/config-UPFS/debug.sh:/my5Gcore/ausf/debug.sh
+      - ${CONFIG}/ausfcfg.yaml:/my5Gcore/config/ausfcfg.yaml
+      - ${CONFIG}/debug.sh:/my5Gcore/ausf/debug.sh
       - ./volumes/metrics:/metrics
     environment:
       GIN_MODE: release
@@ -174,8 +167,8 @@ services:
     expose:
       - "29531"
     volumes:
-      - ../../samples/core/config-UPFS/nssfcfg.yaml:/my5Gcore/config/nssfcfg.yaml
-      - ../../samples/core/config-UPFS/debug.sh:/my5Gcore/nssf/debug.sh
+      - ${CONFIG}/nssfcfg.yaml:/my5Gcore/config/nssfcfg.yaml
+      - ${CONFIG}/debug.sh:/my5Gcore/nssf/debug.sh
       - ./volumes/metrics:/metrics
     environment:
       GIN_MODE: release
@@ -197,8 +190,8 @@ services:
     expose:
       - "29507"
     volumes:
-      - ../../samples/core/config-UPFS/pcfcfg.yaml:/my5Gcore/config/pcfcfg.yaml
-      - ../../samples/core/config-UPFS/debug.sh:/my5Gcore/pcf/debug.sh
+      - ${CONFIG}/pcfcfg.yaml:/my5Gcore/config/pcfcfg.yaml
+      - ${CONFIG}/debug.sh:/my5Gcore/pcf/debug.sh
       - ./volumes/metrics:/metrics
     environment:
       GIN_MODE: release
@@ -221,9 +214,9 @@ services:
       - "29502"
       - "8805/udp"
     volumes:
-      - ../../samples/core/config-UPFS/smfcfg.yaml:/my5Gcore/config/smfcfg.yaml
-      - ../../samples/core/config-UPFS/uerouting.yaml:/my5Gcore/config/uerouting.yaml
-      - ../../samples/core/config-UPFS/debug.sh:/my5Gcore/smf/debug.sh
+      - ${CONFIG}/smfcfg.yaml:/my5Gcore/config/smfcfg.yaml
+      - ${CONFIG}/uerouting.yaml:/my5Gcore/config/uerouting.yaml
+      - ${CONFIG}/debug.sh:/my5Gcore/smf/debug.sh
       - ./volumes/metrics:/metrics
     environment:
       GIN_MODE: release
@@ -248,8 +241,8 @@ services:
     expose:
       - "29503"
     volumes:
-      - ../../samples/core/config-UPFS/udmcfg.yaml:/my5Gcore/config/udmcfg.yaml
-      - ../../samples/core/config-UPFS/debug.sh:/my5Gcore/udm/debug.sh
+      - ${CONFIG}/udmcfg.yaml:/my5Gcore/config/udmcfg.yaml
+      - ${CONFIG}/debug.sh:/my5Gcore/udm/debug.sh
       - ./volumes/metrics:/metrics
     environment:
       GIN_MODE: release
@@ -272,8 +265,8 @@ services:
     expose:
       - "29504"
     volumes:
-      - ../../samples/core/config-UPFS/udrcfg.yaml:/my5Gcore/config/udrcfg.yaml
-      - ../../samples/core/config-UPFS/debug.sh:/my5Gcore/udr/debug.sh
+      - ${CONFIG}/udrcfg.yaml:/my5Gcore/config/udrcfg.yaml
+      - ${CONFIG}/debug.sh:/my5Gcore/udr/debug.sh
       - ./volumes/metrics:/metrics
     environment:
       DB_URI: mongodb://db/free5gc
@@ -299,9 +292,9 @@ services:
       - "500:500/udp"
       - "4500:4500/udp"
     volumes:
-      - ../../samples/core/config-UPFS/n3iwfcfg.yaml:/my5Gcore/config/n3iwfcfg.yaml
-      - ../../samples/core/config-UPFS/n3iwf-ipsec.sh:/my5Gcore/n3iwf/n3iwf-ipsec.sh
-      - ../../samples/core/config-UPFS/debug.sh:/my5Gcore/n3iwf/debug.sh
+      - ${CONFIG}/n3iwfcfg.yaml:/my5Gcore/config/n3iwfcfg.yaml
+      - ${CONFIG}/n3iwf-ipsec.sh:/my5Gcore/n3iwf/n3iwf-ipsec.sh
+      - ${CONFIG}/debug.sh:/my5Gcore/n3iwf/debug.sh
       - ./volumes/metrics:/metrics
     environment:
       GIN_MODE: release
@@ -326,7 +319,7 @@ services:
         DEBUG_TOOLS: "false"
     command: ./webui
     volumes:
-      - ../../samples/core/config-UPFS/webuicfg.yaml:/my5Gcore/config/webuicfg.yaml
+      - ${CONFIG}/webuicfg.yaml:/my5Gcore/config/webuicfg.yaml
     environment:
       - GIN_MODE=release
     networks:

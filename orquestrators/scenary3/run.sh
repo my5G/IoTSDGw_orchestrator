@@ -12,4 +12,3 @@ sleep 1
 ./subscribers-ue.sh
 sleep 1
 sudo docker-compose -f iotsdgw-compose.yml up -d
-

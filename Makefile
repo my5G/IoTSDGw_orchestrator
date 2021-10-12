@@ -24,6 +24,11 @@ base_ue:
 	docker build --no-cache -t ${DOCKER_IMAGE_OWNER_UE}/${DOCKER_IMAGE_NAME_UE}:${DOCKER_IMAGE_TAG_UE} ./containers/base_iotsdgw
 	docker image ls ${DOCKER_IMAGE_OWNER_UE}/${DOCKER_IMAGE_NAME_UE}:${DOCKER_IMAGE_TAG_UE}
 
+base_ue2:
+	docker build --no-cache -t ${DOCKER_IMAGE_OWNER_UE}/${DOCKER_IMAGE_NAME_UE}:${DOCKER_IMAGE_TAG_UE} ./containers/base_iotsdgw2
+	docker image ls ${DOCKER_IMAGE_OWNER_UE}/${DOCKER_IMAGE_NAME_UE}:${DOCKER_IMAGE_TAG_UE}
+
+
 build_docker_compose_scenary1: ## Construa o docker-compose.yml baseado no arquivo envlocal.env
 	rm -f orquestrators/*.yml
 

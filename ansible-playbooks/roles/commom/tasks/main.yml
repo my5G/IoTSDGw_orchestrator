@@ -3,6 +3,8 @@
   git:
     repo: "{{ iotsdgw_rep }}" 
     dest: "{{ iotsdgw_dir }}"
+    update: yes
+    force: yes
 
 - name: Clear All Docker Env
   ansible.builtin.shell: docker system prune --force --all
@@ -21,7 +23,3 @@
      chdir: "{{ iotsdgw_dir }}"
      target: base_ue
   become: yes
-
-- name: Copy volumes config to scenaryOne 
-  ansible.builtin.copy:
-    src:       
