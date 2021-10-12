@@ -3,5 +3,7 @@
   become: true
   vars:
     dir_metrics: /home/teste/temp/iotsdgw/orquestrators/scenary2/volumes/metrics
+    dir_dst: cenario2
+    number_of_nodes: "e{{ devs }}"
   roles:
     - collect
