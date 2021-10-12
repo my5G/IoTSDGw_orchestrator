@@ -6,7 +6,7 @@
        - ".*LoRaIOTSDGW*."
        -  ".*IOTSDGW-Forwarder*."
     use_regex: True 
-  register: get_csv_metricsansible
+  register: get_csv_metrics
 
 - name: use fetch to get the files
   fetch:
