@@ -2,9 +2,11 @@
 - name: use find to get files list which want to fetch 
   find:
     paths: "{{ dir_metrics }}"
-    patterns: ".*LoRaIOTSDGW*."
+    patterns:
+       - ".*LoRaIOTSDGW*."
+       -  ".*IOTSDGW-Forwarder*."
     use_regex: True 
-  register: get_csv_metrics
+  register: get_csv_metricsansible
 
 - name: use fetch to get the files
   fetch:
