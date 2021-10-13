@@ -20,6 +20,7 @@ services:
       - ALL
     networks:
       5gcorenetwork:
+        ipv4_address: 10.100.200.4
         aliases:
           - upf1.my5Gcore.org
       scenary3_lorawan1:
@@ -45,6 +46,7 @@ services:
       - ALL
     networks:
       5gcorenetwork:
+        ipv4_address: 10.100.200.5
         aliases:
           - upf2.my5Gcore.org
       scenary3_lorawan2:
@@ -70,6 +72,7 @@ services:
       - ALL
     networks:
       5gcorenetwork:
+        ipv4_address: 10.100.200.3
         aliases:
           - upfb.my5Gcore.org
   db:
