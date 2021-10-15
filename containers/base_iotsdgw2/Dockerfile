@@ -13,17 +13,15 @@ RUN apt-get clean
 
 # Get My5Gcore
 RUN cd $GOPATH/src \
-    && git clone --recursive -b ${MY5GC_BRANCH} -j 33 https://github.com/my5G/my5G-core.git my5Gcore\
-    && cd my5Gcore \
-    && go mod download
+    && git clone --recursive -b ${MY5GC_BRANCH} -j 33 https://github.com/my5G/my5G-core.git my5Gcore
 
 # Get UE Code
-RUN cd $GOPATH/src/my5Gcore/src \
+RUN cd $GOPATH/src/my5Gcore \
     && git clone -b ${UE_BRANCH} https://github.com/my5G/my5G-non3GPP-access.git ue \
     && go get -u github.com/calee0219/fatal
 
 # Build UE
-RUN cd $GOPATH/src/my5Gcore/src \
+RUN cd $GOPATH/src/my5Gcore/ue/src \
     && CGO_ENABLED=0 go build -a -installsuffix nocgo -o ../bin/ue -x ue/ue.go
 
 ### Make IoTSDgw Forwarder
@@ -55,7 +53,7 @@ WORKDIR /my5gcore
 RUN mkdir -p config/ support/TLS/
 
 # Copy executables
-COPY --from=builder /go/src/my5Gcore/bin/* ./
+COPY --from=builder /go/src/my5Gcore/ue/bin/* ./
 COPY --from=builder2 /go/src/non3GPP-IoTSDGw-Forwarder/build/* ./
 
 # Copy configuration files (not used for now)

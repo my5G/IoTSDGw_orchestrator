@@ -16,7 +16,7 @@ RUN apt-get clean
 
 # Get Free5GC
 RUN cd $GOPATH/src \
-    && git clone --recursive -b v3.0.5 -j `nproc` https://github.com/free5gc/free5gc.git \
+    && git clone --recursive -b v3.0.6 -j `nproc` https://github.com/free5gc/free5gc.git \
     && cd $GOPATH/src/free5gc \
     && git checkout main \
     && git submodule sync \

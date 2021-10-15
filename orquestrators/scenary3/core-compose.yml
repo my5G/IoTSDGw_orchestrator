@@ -9,7 +9,7 @@ services:
         DEBUG_TOOLS: "true"
     command: bash -c "./router-upf.sh && ./debug.sh && ./free5gc-upfd -f ../config/upfcfg.yaml"
     volumes:
-      - "${CONFIG}/upfcfg1.yaml:/my5Gcore/config/upfcfg.yaml"
+      - "${CONFIG}/upfcfg02.yaml:/my5Gcore/config/upfcfg.yaml"
       - "${CONFIG}/upf.sh:/my5Gcore/free5gc-upfd/router-upf.sh"
       - "${CONFIG}/debug.sh:/my5Gcore/free5gc-upfd/debug.sh"
       - ./volumes/metrics:/metrics
@@ -20,7 +20,7 @@ services:
       - ALL
     networks:
       5gcorenetwork:
-        ipv4_address: 10.100.200.4
+        ipv4_address: 10.100.200.104
         aliases:
           - upf1.my5Gcore.org
       scenary3_lorawan1:
@@ -35,7 +35,7 @@ services:
         DEBUG_TOOLS: "true"
     command: bash -c "./router-upf.sh && ./debug.sh && ./free5gc-upfd -f ../config/upfcfg.yaml"
     volumes:
-      - "${CONFIG}/upfcfg2.yaml:/my5Gcore/config/upfcfg.yaml"
+      - "${CONFIG}/upfcfg03.yaml:/my5Gcore/config/upfcfg.yaml"
       - "${CONFIG}/upf.sh:/my5Gcore/free5gc-upfd/router-upf.sh"
       - ${CONFIG}/debug.sh:/my5Gcore/free5gc-upfd/debug.sh
       - ./volumes/metrics:/metrics
@@ -46,7 +46,7 @@ services:
       - ALL
     networks:
       5gcorenetwork:
-        ipv4_address: 10.100.200.5
+        ipv4_address: 10.100.200.105
         aliases:
           - upf2.my5Gcore.org
       scenary3_lorawan2:
@@ -61,7 +61,7 @@ services:
         DEBUG_TOOLS: "true"
     command: bash -c "./router-upf.sh && ./debug.sh && ./free5gc-upfd -f ../config/upfcfg.yaml"
     volumes:
-      - "${CONFIG}/upfcfgb.yaml:/my5Gcore/config/upfcfg.yaml"
+      - "${CONFIG}/upfcfg01.yaml:/my5Gcore/config/upfcfg.yaml"
       - "${CONFIG}/upf.sh:/my5Gcore/free5gc-upfd/router-upf.sh"
       - "${CONFIG}/debug.sh:/my5Gcore/free5gc-upfd/debug.sh"
       - ./volumes/metrics:/metrics
@@ -72,7 +72,7 @@ services:
       - ALL
     networks:
       5gcorenetwork:
-        ipv4_address: 10.100.200.3
+        ipv4_address: 10.100.200.103
         aliases:
           - upfb.my5Gcore.org
   db:
@@ -322,7 +322,7 @@ services:
         DEBUG_TOOLS: "false"
     command: ./webui
     volumes:
-      - ${CONFIG}/webuicfg.yaml:/my5Gcore/config/webuicfg.conf
+      - ${CONFIG}/webuicfg.yaml:/my5Gcore/config/webuicfg.yaml
     environment:
       - GIN_MODE=release
     networks:

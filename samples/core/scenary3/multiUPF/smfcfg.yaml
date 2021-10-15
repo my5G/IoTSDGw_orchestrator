@@ -1,0 +1,140 @@
+info:
+  version: 1.0.2
+  description: SMF initial local configuration
+
+configuration:
+  smfName: SMF
+  sbi:
+    scheme: http
+    registerIPv4: smf.my5Gcore.org # IP used to register to NRF
+    bindingIPv4: smf.my5Gcore.org  # IP used to bind the service
+    port: 8000
+    tls:
+      key: free5gc/support/TLS/smf.key
+      pem: free5gc/support/TLS/smf.pem
+  serviceNameList:
+    - nsmf-pdusession
+    - nsmf-event-exposure
+    - nsmf-oam
+  snssaiInfos:
+    - sNssai:
+        sst: 1
+        sd: 010203
+      dnnInfos:
+        - dnn: internet
+          dns:
+            ipv4: 8.8.8.8
+            ipv6: 2001:4860:4860::8888
+    - sNssai:
+        sst: 1
+        sd: 112233
+      dnnInfos:
+        - dnn: internet
+          dns:
+            ipv4: 8.8.8.8
+            ipv6: 2001:4860:4860::8888
+    - sNssai:
+        sst: 2
+        sd: 112234
+      dnnInfos:
+        - dnn: internet
+          dns:
+            ipv4: 8.8.8.8
+            ipv6: 2001:4860:4860::8888
+  pfcp:
+    addr: smf.my5Gcore.org
+  userplane_information:
+    up_nodes:
+      gNB1:
+        type: AN
+        an_ip: 192.188.2.3
+      UPF1:
+        type: UPF
+        node_id: 10.100.200.103
+        sNssaiUpfInfos:
+          - sNssai:
+              sst: 1
+              sd: 010203
+            dnnUpfInfoList:
+              - dnn: internet
+          - sNssai:
+              sst: 1
+              sd: 112233
+            dnnUpfInfoList:
+              - dnn: internet
+        interfaces:
+          - interfaceType: N3
+            endpoints:
+              - 10.100.200.103
+            networkInstance: internet
+          - interfaceType: N9
+            endpoints:
+              - 10.100.200.103
+            networkInstance: internet
+
+      UPF2:
+        type: UPF
+        node_id: 10.100.200.104
+        sNssaiUpfInfos:
+          - sNssai:
+              sst: 1
+              sd: 010203
+            dnnUpfInfoList:
+              - dnn: internet
+                pools:
+                  - cidr: 60.60.0.0/16
+        interfaces:
+          - interfaceType: N9
+            endpoints:
+              - 10.100.200.104
+            networkInstance: internet
+
+      UPF3:
+        type: UPF
+        node_id: 10.100.200.105
+        sNssaiUpfInfos:
+          - sNssai:
+              sst: 1
+              sd: 010203
+            dnnUpfInfoList:
+              - dnn: internet
+                pools:
+                  - cidr: 60.61.0.1/32
+        interfaces:
+          - interfaceType: N9
+            endpoints:
+              - 10.100.200.105
+            networkInstance: internet
+    links:
+      - A: gNB1
+        B: UPF1
+      - A: UPF1
+        B: UPF2
+      - A: UPF1
+        B: UPF3
+  nrfUri: http://nrf.my5Gcore.org:8000
+  locality: area1
+  ulcl: true
+
+logger:
+  SMF:
+    debugLevel: info
+    ReportCaller: false
+  NAS:
+    debugLevel: info
+    ReportCaller: false
+  NGAP:
+    debugLevel: info
+    ReportCaller: false
+  Aper:
+    debugLevel: info
+    ReportCaller: false
+  PathUtil:
+    debugLevel: info
+    ReportCaller: false
+  OpenApi:
+    debugLevel: info
+    ReportCaller: false
+  PFCP:
+    debugLevel: info
+    ReportCaller: false
