@@ -8,7 +8,9 @@ sleep 1
 sudo docker-compose -f chirpstack-compose2.yml up -d
 sleep 1
 sudo docker-compose -f core-compose.yml up -d
+sleep 1 
+#../../bin/subscribers-update.sh
+./subscribers2-ue.sh
 sleep 1
-./subscribers-ue.sh
-sleep 1
+
 sudo docker-compose -f iotsdgw-compose.yml up -d

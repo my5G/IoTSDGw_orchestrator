@@ -82,7 +82,7 @@ trigger_reg_scenary3-2(){
     --header 'Content-Type: application/json' \
     --data-raw "{
              \"authenticationMethod\": \"$auth_method\",
-             \"supiOrSuci\": \"$supi_or_suci\",
+             \"supiOrSuci\": \"$supi_or_suci2\",
              \"K\": \"$k\",
              \"opcType\": \"$opc_type\",
              \"opc\": \"$opc\",

@@ -226,6 +226,7 @@ services:
       DEBUG: "true"
     networks:
       5gcorenetwork:
+        ipv4_address: 10.100.200.102
         aliases:
           - smf.my5Gcore.org
     depends_on:
