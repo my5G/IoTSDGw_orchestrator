@@ -13,5 +13,5 @@ sleep 1
 sleep 1
 sudo docker-compose -f iotsdgw-compose.yml up -d
 sleep 1
-sudo docker-compose -f iotsdgw-compose.yml exec my5gcore-ue sh
+#sudo docker-compose -f iotsdgw-compose.yml exec my5gcore-ue sh
 
