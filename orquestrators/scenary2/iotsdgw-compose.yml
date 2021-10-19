@@ -31,7 +31,7 @@ services:
       - ALL
     #command: sh -c "./init.sh StartupUe 10.100.120.10"
     #command: sh -c "while :; do echo 'Hit CTRL+C'; sleep 1; done" 
-    command: sh -c "./ipsec --ue ue --n3iwf n3iwf && ./debug.sh && ./init.sh StartupUe && ./bin/ue "
+    command: sh -c "./ipsec --ue ue --n3iwf n3iwf && ./debug.sh && ./init.sh StartupUe  && ./bin/ue "
   
 volumes:
    metrics:

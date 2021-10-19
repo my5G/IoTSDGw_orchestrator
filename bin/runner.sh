@@ -32,7 +32,7 @@ dnn2=${dnn2:-"internet"}
 
 
 trigger_reg(){
-
+    sleep 2
     curl --insecure --location --request POST "$scheme://$ue_addr:$ue_port/registration/" \
     --header 'Content-Type: application/json' \
     --data-raw "{
@@ -101,22 +101,21 @@ trigger_reg_scenary3-2(){
 }
 
 trigger_runner_forwarder(){
+  sleep 3
    echo "Trigger Runner forwarders"
    ./bin/main --ipv4NetServer $NETSERVER --port 1700 &
 }
 
 trigger_simulator(){
+  sleep 4
    echo "Trigger Simulator"
    ./bin/simulator --dev $NUMDEV --packets $PACKET &
 }
 
 if [ "$1" == "StartupUe" ]; then
-    sleep 10
-    trigger_reg
-    sleep 10
-    trigger_runner_forwarder
-    sleep 2
-    trigger_simulator
+    trigger_reg &
+    trigger_runner_forwarder &
+    trigger_simulator &
 fi
 
 if [ "$1" == "nonUE" ]; then
