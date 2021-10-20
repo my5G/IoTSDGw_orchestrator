@@ -101,13 +101,13 @@ trigger_reg_scenary3-2(){
 }
 
 trigger_runner_forwarder(){
-  sleep 3
+  sleep 4
    echo "Trigger Runner forwarders"
    ./bin/main --ipv4NetServer $NETSERVER --port 1700 &
 }
 
 trigger_simulator(){
-  sleep 4
+  sleep 8
    echo "Trigger Simulator"
    ./bin/simulator --dev $NUMDEV --packets $PACKET &
 }
