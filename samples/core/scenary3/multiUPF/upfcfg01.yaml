@@ -30,5 +30,6 @@ configuration:
       # natifname: eth0
     - dnn: internet # Data Network Name
       cidr: 60.61.0.0/16 # Classless Inter-Domain Routing for assigned IPv4 pool of UE
+
     - dnn: internet # Data Network Name
       cidr: 60.62.0.0/16 # Classless Inter-Domain Routing for assigned IPv4 pool of UE
