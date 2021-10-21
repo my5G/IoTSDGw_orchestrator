@@ -22,26 +22,35 @@ configuration:
         sd: 010203
       dnnInfos:
         - dnn: internet
-          dns:
+          dns: 
             ipv4: 8.8.8.8
             ipv6: 2001:4860:4860::8888
     - sNssai:
         sst: 1
         sd: 112233
       dnnInfos:
-        - dnn: internet2
-          dns:
+        - dnn: internet
+          dns: 
+            ipv4: 8.8.8.8
+            ipv6: 2001:4860:4860::8888
+    - sNssai:
+        sst: 2
+        sd: 112234
+      dnnInfos:
+        - dnn: internet
+          dns: 
             ipv4: 8.8.8.8
             ipv6: 2001:4860:4860::8888
   pfcp:
-    addr: 10.100.200.102
+    addr: smf.my5Gcore.org
   userplane_information:
     up_nodes:
       gNB1:
         type: AN
+        an_ip: 192.188.2.3
       UPF1:
         type: UPF
-        node_id: 10.100.200.103
+        node_id: 10.200.200.101
         sNssaiUpfInfos:
           - sNssai:
               sst: 1
@@ -52,20 +61,37 @@ configuration:
               sst: 1
               sd: 112233
             dnnUpfInfoList:
-              - dnn: internet2
+              - dnn: internet
         interfaces:
           - interfaceType: N3
             endpoints:
-              - 10.100.200.103
+              - 10.200.200.101
             networkInstance: internet
           - interfaceType: N9
             endpoints:
-              - 10.100.200.103
-            networkInstance: internet2
+              - 10.200.200.101
+            networkInstance: internet
 
       UPF2:
         type: UPF
-        node_id: 10.100.200.104
+        node_id: 10.200.200.102
+        sNssaiUpfInfos:
+          - sNssai:
+              sst: 1
+              sd: 010203
+            dnnUpfInfoList:
+               - dnn: internet
+                 pools:
+                  - cidr: 60.60.0.0/16
+        interfaces:
+          - interfaceType: N9
+            endpoints:
+              - 10.200.200.102
+            networkInstance: internet
+
+      UPF3:
+        type: UPF
+        node_id: 10.200.200.103
         sNssaiUpfInfos:
           - sNssai:
               sst: 1
@@ -73,28 +99,11 @@ configuration:
             dnnUpfInfoList:
               - dnn: internet
                 pools:
-                  - cidr: 60.60.0.0/16
+                  - cidr: 60.61.0.1/32
         interfaces:
           - interfaceType: N9
             endpoints:
-              - 10.100.200.104
-            networkInstance: internet2
-
-      UPF3:
-        type: UPF
-        node_id: 10.100.200.105
-        sNssaiUpfInfos:
-          - sNssai:
-              sst: 1
-              sd: 010203
-            dnnUpfInfoList:
-              - dnn: internet2
-                pools:
-                  - cidr: 60.61.0.0/16
-        interfaces:
-          - interfaceType: N9
-            endpoints:
-              - 10.100.200.105
+              - 10.200.200.103
             networkInstance: internet
     links:
       - A: gNB1
@@ -103,7 +112,7 @@ configuration:
         B: UPF2
       - A: UPF1
         B: UPF3
-  nrfUri: http://nrf.my5Gcore.org:8000
+  nrfUri: http://127.0.0.10:8000
   locality: area1
   ulcl: true
 

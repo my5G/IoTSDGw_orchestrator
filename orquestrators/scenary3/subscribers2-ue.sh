@@ -12,7 +12,7 @@ curl --location --request POST 'http://127.0.0.1:5000/api/subscriber/imsi-208930
             "op": {
                 "encryptionAlgorithm": 0,
                 "encryptionKey": 0,
-                "opValue": "c9e8763286b5b9ffbdf56e1297d0887b"
+                "opValue": "df0c67868fa25f748b7044c6e7c245b8"
             }
         },
         "opc": {
@@ -23,9 +23,9 @@ curl --location --request POST 'http://127.0.0.1:5000/api/subscriber/imsi-208930
         "permanentKey": {
             "encryptionAlgorithm": 0,
             "encryptionKey": 0,
-            "permanentKeyValue": "5122250214c33e723a5dd523fc145fc0"
+            "permanentKeyValue": "b73a90cbcf3afb622dba83c58a8415df"
         },
-        "sequenceNumber": "16f3b3f70fc2"
+        "sequenceNumber": "f1e8a523a36d"
     },
     "AccessAndMobilitySubscriptionData": {
         "gpsis": [

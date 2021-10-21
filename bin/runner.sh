@@ -22,13 +22,22 @@ pduSessionID=${pduSessionID:-"10"}
 greAddress=${greAddress:-"60.60.0.1"}
 dnn=${dnn:-"internet"}
 
-
-
-ike_bind_addr2=${ike_bind_addr2:-"192.168.127.3"}
+ue_addr2=${ue_addr2:-"127.0.0.1"}
+ue_port2=${ue_port2:-"10000"}
+scheme2=${scheme2:-"http"}
+auth_method2=${auth_method2:-"5G_AKA"}
+n3iwf_address2=${n3iwf_address2:-"192.168.127.4"}
 supi_or_suci2=${supi_or_suci2:-"2089300007486"}
-pduSessionID2=${pduSessionID2:-"11"}
+k2=${k2:-"b73a90cbcf3afb622dba83c58a8415df"} 
+opc_type2=${opc_type2:-"OP"}
+opc2=${opc2:-"b672047e003bb952dca6cb8af0e5b779"}
+ike_bind_addr2=${ike_bind_addr2:-"192.168.127.3"}
+pduSessionID2=${pduSessionID:-"11"}
 greAddress2=${greAddress2:-"60.60.0.2"}
 dnn2=${dnn2:-"internet"}
+
+
+
 
 
 trigger_reg(){
@@ -53,7 +62,7 @@ trigger_reg(){
 }
 
 trigger_reg_scenary3-1(){
-
+    sleep 2
     curl --insecure --location --request POST "$scheme://$ue_addr:$ue_port/registration/" \
     --header 'Content-Type: application/json' \
     --data-raw "{
@@ -77,18 +86,18 @@ trigger_reg_scenary3-1(){
 }
 
 trigger_reg_scenary3-2(){
-
-    curl --insecure --location --request POST "$scheme://$ue_addr:$ue_port/registration/" \
+    sleep 2
+    curl --insecure --location --request POST "$scheme://$ue_addr2:$ue_port2/registration/" \
     --header 'Content-Type: application/json' \
     --data-raw "{
-             \"authenticationMethod\": \"$auth_method\",
+             \"authenticationMethod\": \"$auth_method2\",
              \"supiOrSuci\": \"$supi_or_suci2\",
-             \"K\": \"$k\",
-             \"opcType\": \"$opc_type\",
-             \"opc\": \"$opc\",
+             \"K\": \"$k2\",
+             \"opcType\": \"$opc_type2\",
+             \"opc\": \"$opc2\",
              \"plmnId\": \"\",
              \"servingNetworkName\": \"\",
-             \"n3IWFIpAddress\": \"$n3iwf_address\",
+             \"n3IWFIpAddress\": \"$n3iwf_address2\",
              \"ikeBindAddress\": \"$ike_bind_addr2\",
              \"SNssai\": {
              \"Sst\": 1,
@@ -121,25 +130,19 @@ fi
 if [ "$1" == "nonUE" ]; then
     echo " Non UE Execute"
     sleep 5
-    trigger_runner_forwarder
+    trigger_runner_forwarder  
     sleep 3
-    trigger_simulator
+    trigger_simulator 
 fi
 
 if [ "$1" == "StartupUeOne" ]; then
-    sleep 10
-    trigger_reg_scenary3-1
-    sleep 10
-    trigger_runner_forwarder
-    sleep 2
-    trigger_simulator
+    trigger_reg_scenary3-1 & 
+    trigger_runner_forwarder &
+    trigger_simulator &
 fi
 
 if [ "$1" == "StartupUeTwo" ]; then
-    sleep 10
-    trigger_reg_scenary3-2
-    sleep 10
-    trigger_runner_forwarder
-    sleep 2
-    trigger_simulator
+    trigger_reg_scenary3-2 &
+    trigger_runner_forwarder &
+    trigger_simulator &
 fi

@@ -50,7 +50,7 @@ configuration:
     5
 
   GTPBindAddress: # IP address of N3 interface (GTP) on this N3IWF
-    10.100.200.2
+    10.100.200.200
 
   NASTCPPort: # TCP port which the NAS listens on
     20000

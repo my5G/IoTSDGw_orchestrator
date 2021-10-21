@@ -12,7 +12,7 @@ services:
       - ../../bin/runner.sh:/my5gcore/init.sh
       - ../../samples/iotsgdw/config/ipsec:/my5gcore/ipsec
       - ../../samples/iotsgdw/config/debug.sh:/my5gcore/debug.sh
-      - ./volumes/metrics:/metrics
+      - ./volumes/metrics1:/metrics
     environment:
       GIN_MODE: release
       DEBUG: "true"
@@ -29,8 +29,8 @@ services:
           - non3gpp1.my5Gcore.org
     cap_add:
       - ALL
-    #command: sh -c "./ipsec --ue ue --n3iwf n3iwf && ./debug.sh && ./init.sh StartupUe && ./bin/ue"
-    command: sh -c "./ipsec --ue ue1 --n3iwf n3iwf && ./debug.sh && ./bin/ue"
+    command: sh -c "./ipsec --ue ue1 --n3iwf n3iwf && ./debug.sh && ./init.sh StartupUeOne && ./bin/ue"
+    #command: sh -c "./ipsec --ue ue1 --n3iwf n3iwf && ./debug.sh && ./bin/ue"
 
   my5gcore-ue2:
     container_name: non3gpp2
@@ -43,7 +43,7 @@ services:
       - ../../bin/runner.sh:/my5gcore/init.sh
       - ../../samples/iotsgdw/config/ipsec:/my5gcore/ipsec
       - ../../samples/iotsgdw/config/debug.sh:/my5gcore/debug.sh
-      - ./volumes/metrics:/metrics
+      - ./volumes/metrics2:/metrics
     environment:
       GIN_MODE: release
       DEBUG: "true"
@@ -53,18 +53,20 @@ services:
       PACKET: 1000
     extra_hosts:
       - "ue2:192.168.127.3"
-      - "n3iwf:192.168.127.1"
+      - "n3iwf:192.168.127.4"
     networks:
       scenary3_5gcorenetwork:
         aliases:
           - non3gpp2.my5Gcore.org
     cap_add:
       - ALL
-    #command: sh -c "./ipsec --ue ue --n3iwf n3iwf && ./debug.sh && ./init.sh StartupUe  && ./bin/ue"
-    command: sh -c "./ipsec --ue ue2 --n3iwf n3iwf && ./debug.sh && ./bin/ue"
+    command: sh -c "./ipsec --ue ue2 --n3iwf n3iwf && ./debug.sh && ./init.sh StartupUeTwo  && ./bin/ue"
+    #command: sh -c "./ipsec --ue ue2 --n3iwf n3iwf && ./debug.sh && ./bin/ue"
 
 volumes:
-  metrics:
+  metrics1:
+  metrics2:        
+          
 networks:
   scenary3_5gcorenetwork:
     external: true
