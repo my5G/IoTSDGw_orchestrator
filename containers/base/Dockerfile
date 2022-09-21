@@ -1,11 +1,13 @@
 FROM golang:1.14.4-stretch AS builder
 
-LABEL maintainer="My5Gcore <support@labora.inf.ufg.br>"
+LABEL maintainer="Free5GC <support@free5gc.org>"
+
+ENV DEBIAN_FRONTEND noninteractive
 
 # Install dependencies
-RUN apt -y update \
-    && apt -y install gcc cmake autoconf libtool pkg-config libmnl-dev libyaml-dev apt-transport-https ca-certificates \
-    && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+RUN apt-get update \
+    && apt-get -y install gcc cmake autoconf libtool pkg-config libmnl-dev libyaml-dev apt-transport-https ca-certificates \
+    && curl -sL https://deb.nodesource.com/setup_14.x | bash - \
     && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
     && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
     && apt-get update \
@@ -16,39 +18,27 @@ RUN apt-get clean
 
 # Get Free5GC
 RUN cd $GOPATH/src \
-    && git clone --recursive -b v3.0.6 -j `nproc` https://github.com/free5gc/free5gc.git \
-    && cd $GOPATH/src/free5gc \
-    && git checkout main \
-    && git submodule sync \
-    && git submodule update --init --jobs `nproc` \
-    && git submodule foreach git checkout main \
-    && git submodule foreach git pull --jobs `nproc`
+    && git clone --recursive -b v3.2.1 -j `nproc` https://github.com/free5gc/free5gc.git
 
 # Build Free5GC NFs & WebUI
 RUN cd $GOPATH/src/free5gc \
     && make all
 
 # Alpine is used for debug purpose. You can use scratch for a smaller footprint.
-FROM alpine
+FROM alpine:3.15
 
-WORKDIR /my5Gcore
-RUN mkdir -p config/ support/TLS/ public
+WORKDIR /free5gc
+RUN mkdir -p config/TLS/ public
 
 # Copy executables
 COPY --from=builder /go/src/free5gc/bin/* ./
-COPY --from=builder /go/src/free5gc/NFs/upf/build/bin/* ./
 COPY --from=builder /go/src/free5gc/webconsole/bin/webconsole ./webui
 
 # Copy static files (webui frontend)
 COPY --from=builder /go/src/free5gc/webconsole/public ./public
 
-# Copy linked libs
-COPY --from=builder /go/src/free5gc/NFs/upf/build/updk/src/third_party/libgtp5gnl/lib/libgtp5gnl.so.0 ./
-COPY --from=builder /go/src/free5gc/NFs/upf/build/utlt_logger/liblogger.so ./
-
 # Copy configuration files (not used for now)
 COPY --from=builder /go/src/free5gc/config/* ./config/
-COPY --from=builder /go/src/free5gc/NFs/upf/build/config/* ./config/
 
 # Copy default certificates (not used for now)
-COPY --from=builder /go/src/free5gc/support/TLS/* ./support/TLS/
+COPY --from=builder /go/src/free5gc/config/TLS/* ./config/TLS/

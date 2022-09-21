@@ -1,34 +1,27 @@
-FROM my5gcore/base:latest AS builder
-FROM ubuntu:18.04
+FROM free5gc/base:latest AS builder
+FROM bitnami/minideb:bullseye
 
-LABEL description="My5Gcore open source 5G Core Network" \
+LABEL description="Free5GC open source 5G Core Network" \
     version="Stage 3"
 
-ENV My5GC_MODULE free5gc-upfd
+ENV F5GC_MODULE upf
 ENV DEBIAN_FRONTEND noninteractive
 ARG DEBUG_TOOLS
 
 # Install debug tools ~ 100MB (if DEBUG_TOOLS is set to true)
-RUN if [ "$DEBUG_TOOLS" = "true" ] ; then apt-get update && apt-get install -y tcpdump vim strace net-tools iputils-ping curl netcat ; fi
+RUN if [ "$DEBUG_TOOLS" = "true" ] ; then apt-get update && apt-get install -y vim strace net-tools iputils-ping curl netcat ; fi
 
 # Install UPF dependencies
 RUN apt-get update \
-    && apt-get install -y libmnl0 libyaml-0-2 iproute2 iptables\
+    && apt-get install -y libmnl0 libyaml-0-2 iproute2 iptables \
     && apt-get clean
 
 # Set working dir
-WORKDIR /my5Gcore
-RUN mkdir -p ${My5GC_MODULE}/config/
+WORKDIR /free5gc
+RUN mkdir -p config/ log/
 
-# Copy executable and default configuration
-COPY --from=builder /my5Gcore/${My5GC_MODULE} ./${My5GC_MODULE}/
+# Copy executable
+COPY --from=builder /free5gc/${F5GC_MODULE} ./
 
-# Copy linked libs
-COPY --from=builder /my5Gcore/libgtp5gnl.so.0 /usr/local/lib
-COPY --from=builder /my5Gcore/liblogger.so /usr/local/lib
-
-# Move to the executable location
-WORKDIR /my5Gcore/${My5GC_MODULE}
-
-# Update links
-RUN ldconfig
+# Config files volume
+VOLUME [ "/free5gc/config" ]
