@@ -1,6 +1,6 @@
 <img width="20%" src="docs/media/img/my5g-logo.png" alt="my5G-core"/>
 
-## Iotsdgw Orquestrator
+## IoTSDGw Orchestrator
 
 ![GitHub](https://img.shields.io/github/license/my5G/my5G-non3GPP-access?color=blue)
 ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/my5G/my5GCore)
@@ -24,4 +24,4 @@ For contribution, please reference to [guidelines](https://github.com/my5G/templ
 
 ## License
 
-Iotsdgw Orquestrator is now under [Apache 2.0](https://github.com/my5G/my5G-non3GPP-access/blob/master/LICENSE) license.
+IoTSDGw Orchestrator is now under [Apache 2.0](https://github.com/my5G/my5G-non3GPP-access/blob/master/LICENSE) license.
