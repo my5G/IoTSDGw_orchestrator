@@ -5,3 +5,4 @@ backup/
 dbdata/
 volumes/
 collect/
+bin/gtp5g/
