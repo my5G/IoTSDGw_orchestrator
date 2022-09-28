@@ -7,6 +7,7 @@ ENV MY5GC_BRANCH master
 ENV UE_BRANCH scenary3
 #ENV UE_BRANCH free5gc-3.0.5-Version
 
+#dependencies
 RUN apt-get update
 RUN apt-get -y install git gcc cmake autoconf libtool pkg-config libmnl-dev libyaml-dev ssh curl
 RUN apt-get clean
