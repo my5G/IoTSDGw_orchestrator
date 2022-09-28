@@ -1,4 +1,4 @@
-<img width="20%" src="docs/media/img/my5g-logo.png" alt="my5G-core"/>
+<img width="20%" src="https://github.com/organizations/my5G/settings/profile" alt="my5G-core"/>
 
 ## Iotsdgw Orquestrator
 
