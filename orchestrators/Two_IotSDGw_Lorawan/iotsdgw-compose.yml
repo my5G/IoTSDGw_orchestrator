@@ -1,0 +1,72 @@
+version: '3'
+
+services:
+  my5gcore-ue:
+    container_name: non3gpp1
+    build:
+      context: ../../containers/nf_ue
+      args:
+        DEBUG_TOOLS: "true"
+    volumes:
+      - ../../samples/iotsgdw/config:/my5gcore/config
+      - ../../bin/runner.sh:/my5gcore/init.sh
+      - ../../samples/iotsgdw/config/ipsec:/my5gcore/ipsec
+      - ../../samples/iotsgdw/config/debug.sh:/my5gcore/debug.sh
+      - ./volumes/metrics1:/metrics
+    environment:
+      GIN_MODE: release
+      DEBUG: "true"
+      My5GC_MODULE: "ue1"
+      NETSERVER: 10.100.120.10
+      NUMDEV: ${DEVS_NUMBERS}
+      PACKET: 1000
+    extra_hosts:
+      - "ue1:192.168.127.2"
+      - "n3iwf:192.168.127.1"
+    networks:
+      scenary3_5gcorenetwork:
+        aliases:
+          - non3gpp1.my5Gcore.org
+    cap_add:
+      - ALL
+    command: sh -c "./ipsec --ue ue1 --n3iwf n3iwf && ./debug.sh && ./init.sh StartupUeOne && ./bin/ue"
+    #command: sh -c "./ipsec --ue ue1 --n3iwf n3iwf && ./debug.sh && ./bin/ue"
+
+  my5gcore-ue2:
+    container_name: non3gpp2
+    build:
+      context: ../../containers/nf_ue
+      args:
+        DEBUG_TOOLS: "true"
+    volumes:
+      - ../../samples/iotsgdw/config:/my5gcore/config
+      - ../../bin/runner.sh:/my5gcore/init.sh
+      - ../../samples/iotsgdw/config/ipsec:/my5gcore/ipsec
+      - ../../samples/iotsgdw/config/debug.sh:/my5gcore/debug.sh
+      - ./volumes/metrics2:/metrics
+    environment:
+      GIN_MODE: release
+      DEBUG: "true"
+      My5GC_MODULE: "ue2"
+      NETSERVER: 10.100.130.10
+      NUMDEV: ${DEVS_NUMBERS}
+      PACKET: 1000
+    extra_hosts:
+      - "ue2:192.168.127.3"
+      - "n3iwf:192.168.127.4"
+    networks:
+      scenary3_5gcorenetwork:
+        aliases:
+          - non3gpp2.my5Gcore.org
+    cap_add:
+      - ALL
+    command: sh -c "./ipsec --ue ue2 --n3iwf n3iwf && ./debug.sh && ./init.sh StartupUeTwo  && ./bin/ue"
+    #command: sh -c "./ipsec --ue ue2 --n3iwf n3iwf && ./debug.sh && ./bin/ue"
+
+volumes:
+  metrics1:
+  metrics2:        
+          
+networks:
+  scenary3_5gcorenetwork:
+    external: true
